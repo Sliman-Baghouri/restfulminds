@@ -1,0 +1,324 @@
+.navigation-menu{
+  display: none;
+  width:100%;
+  background:#FFF;
+  box-shadow: 0 15px 15px -15px rgba(0, 0, 0, 0.5);
+  position:fixed;
+  .logo{
+    width:70px;
+    height:70px;
+    float:right;
+    img{
+      width:100%;
+      height:100%;
+    }
+  }
+}
+
+.btn-toggle {
+  float:left;  
+  transform: scale(.6) !important;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  padding: 12px;
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+  transform: translateZ(0);
+  transition: transform 0.1s ease-out;
+  
+  &:active { transform: translateY(4px); }
+  
+  &:focus .line:after { 
+    background-color: $toggle-line-focus-color;
+  }
+}
+
+.line {
+  width: $toggle-size;
+  padding: $toggle-line-size/2;
+  
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: $toggle-line-size;
+    background-color: $toggle-line-color;
+    border-radius: 2px;
+    transform: translateZ(0) rotate(0);
+    transition: background-color 0.2s ease-out;
+  }
+    
+  .open & {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        animation: jump-#{$i} $toggle-anim-speed forwards ease;
+        &:after {
+          animation: line-#{$i} $toggle-anim-speed forwards ease-in-out;
+        }
+      }
+    }
+  }
+  
+  .close & {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        animation: jump-#{$i} $toggle-anim-speed reverse ease;
+        &:after {
+          animation: line-#{$i} $toggle-anim-speed reverse ease-in-out;
+        }
+      }
+    }
+  }
+
+  .open &,
+  .close & {
+    &:nth-child(3) {
+      animation: jump-3 $toggle-anim-speed forwards ease-out;
+    }
+  }
+}
+
+@keyframes line-1 {
+  10% { transform: translateZ(0) rotate(0) }
+  80% { transform: translateZ(0) rotate($toggle-line-angle - 10) }
+  90%, 100% { transform: translateZ(0) rotate($toggle-line-angle) }
+}
+
+@keyframes line-2 {
+  10% { transform: translateZ(0) rotate(0) }
+  20% { transform: translateZ(0) rotate(10deg) }
+  90%, 100% { transform: translateZ(0) rotate(-$toggle-line-angle) }
+}
+
+@keyframes jump-1 {
+  10% { transform: translateY(0) }
+  50% { transform: translateY(-$toggle-line-size * 12) }
+  90%, 100% { transform: translateY(-$toggle-line-size * 1) }
+}
+
+@keyframes jump-2 {
+  10% { transform: translateY(0) }
+  50% { transform: translateY(-$toggle-line-size * 10) }
+  85%, 100% { transform: translateY(-$toggle-line-size * 3) }
+}
+
+@keyframes jump-3 {
+  10% { transform: translateY(-$toggle-line-size*1) rotate(15deg) }
+  30% { transform: translateY(-$toggle-line-size*4) rotate(-10deg) }
+  50% { transform: translateY($toggle-line-size) rotate(5deg) }
+  80% { transform: translateY(0) }
+}
+
+@keyframes glow {
+  50% {
+    box-shadow: rgba(lighten($toggle-line-color, 10%), 0.4) 0 0 2px 2px;
+  }
+}
+
+nav{
+	z-index: 99;
+
+}
+
+.ul-nav{
+  display:flex;
+  justify-content: right;
+  margin:0;
+  padding: 0 !important;
+  z-index: 999999;
+  top:0;
+  transition: 1s;
+  letter-spacing: 2px;
+  justify-content: space-evenly;
+  .logo-mark{
+    h2{
+      text-transform: uppercase;
+      font-weight: bold;
+      margin:0;
+      padding:0;
+    }
+        transform: scale(.8);
+  }
+  .sub-ul-container{
+
+    li{
+      -webkit-transition:0.5s;
+      -o-transition:0.5s;
+      transition:0.5s;
+        a{
+          display: block;
+          position:relative;
+          text-decoration:none;
+          padding:5px;
+          font-size:14px;
+          width:100%;
+          padding: 0 20px;
+          color:#FFF;
+          text-transform:uppercase;
+          transition:0.5s;
+          &:hover{
+              transform:scale(1.2);
+              opacity:1;
+              text-decoration:none;
+              color:#FFF;                    
+          }
+          &:before{
+              content:'';
+              position:absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:100%;
+              background:$accent;
+              -webkit-transition:0.5s;
+              -o-transition:0.5s;
+              transition:0.5s;
+              transform:scaleX(0);
+              transform-origin:right;
+              z-index:-1;
+          }
+          &:hover:before{
+              transition:transform 0.5s;
+              transform:scaleX(1);
+              transform-origin:left;
+          }
+      }
+  }
+  // remove the jquery code on desktop regarding the links 
+     
+  }
+.sub-ul-container{
+	  margin:0 auto;
+	  display:-webkit-box;
+	  display:-ms-flexbox;
+	  display:flex;
+	  margin-top: 2.6%;
+    .sub-li{
+      position: relative;
+      &:hover .link-holder{
+        transform: scale(1);
+        transform-origin: -100% 50%
+      }
+    }
+    .sub-li-a{
+	  	position: relative;
+      display: none;
+      margin:0;
+	  	&:hover .sub-link-holder{
+	  		transform: scale(1);
+	  		transform-origin: -100% 50%
+	  	}
+	  }
+    .sub-link-holder{
+      box-shadow: -13px 15px 0px -6px rgba(0, 0, 0, 0.2);
+      transform: scale(0);
+      position: absolute;
+      top: -32%;
+      left: -100%;
+      z-index: 999;
+      width: 300px;
+      display: none;
+      background: #FFF;
+      transition: .3s;
+       a{
+            color:#000  !important;
+            width: 70%;
+            margin: 20px auto;  
+             &:hover{
+               color:$wc !important;
+             }   
+        }
+
+     }
+	  .link-holder{
+  	  box-shadow: 13px 15px 0px -6px rgba(0, 0, 0, 0.2);
+	    transform: scale(0);
+		  position: absolute;
+		  top:93%;
+		  left:-50%;
+		  z-index: 999;
+	    width: 300px;
+	    display: none;
+	    background:#FFF;
+	    transition:.3s;
+		a{
+			color:#000  !important;
+		  	width: 70%;
+  		  	margin: 20px auto;	
+  		  	&:hover{
+  		  		color:$wc !important;
+  		  	}		
+		}
+	  }  
+	
+  }
+}
+
+@media screen and (max-width: 990px){
+   .logo-mark{
+      display: none !important;
+   }
+   .sub-ul-container{
+     margin:0 !important;
+     text-align: center;
+   }
+
+   .link-holder, .sub-link-holder{
+      position: static !important;
+      margin:0 !important;
+      width:100% !important;
+      padding:10px;
+   }
+
+    .sub-li{
+
+      &:focus .link-holder{
+        transform: scale(1);
+        transform-origin: -100% 50%;
+      }
+    }
+
+   .ul-nav{
+     padding:20px !important;
+     justify-content: center;
+   }
+}
+
+@media screen and (max-width: 850px){
+  nav{
+  }
+  header .ul-nav{
+    height: auto !important;
+    top:0 !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .links-li{
+      width:100% !important;
+      height: 100vh !important;
+      overflow-y:scroll;
+      overflow-x:hidden;
+  }
+  // .link-holder{
+  //     top: 116% !important;
+  //     left: -50% !important;
+  // }
+  // .sub-link-holder{
+  //     left: -50% !important;
+  //     top: 121px !important;
+  // }
+  // .sub-link-holder.aussie-link{
+  //     left: -50% !important;
+  //     top: 42px !important;
+  // }
+}
+
+
+
+
+
+

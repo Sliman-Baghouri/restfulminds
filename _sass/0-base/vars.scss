@@ -1,0 +1,31 @@
+// Media Query Breakpoints
+$maxMedia:"(max-width:576px)";
+$minSmall:"(min-width:768px)";
+$maxSmall:"(max-width:768px)";
+$minMedium:"(min-width:992px)";
+$maxMedium:"(max-width:992px)";
+$maxLarge:"(max-width:1280px)"; 
+$minLarge:"(min-width:1280px)"; 
+$minExtraLarge:"(min-width:1300px)"; 
+$maxExtraLarge:"(max-width:1380px)";
+
+/* Colors */
+
+$wc:#FFFFFF;
+$bc:#000000;
+$textc:#dad6d6;
+// menu
+$toggle-size: 60px;
+$toggle-line-size: $toggle-size/8;
+$toggle-line-angle: 405deg;
+$toggle-anim-speed: 0.9s;
+
+$accent:#ff1100cf;
+
+$light-accent:#b362ea;
+
+$subcolor:#229CF4;
+
+$textColor: #777d8e;
+$toggle-line-color: $bc;
+$toggle-line-focus-color: $bc;

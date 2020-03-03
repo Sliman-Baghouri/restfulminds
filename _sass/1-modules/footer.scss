@@ -1,0 +1,116 @@
+footer{
+	a.sub{
+		padding: 12px;
+	    font-size: 1.3em;
+	    background: #FF0000;
+	    margin-bottom: 10px;
+	    color: #FFF;
+	    border-radius: 30px;
+	    font-weight: bold;
+	}
+	.first-section{
+		background:$accent;
+	}
+	.second-section{
+		background:#282925;
+		padding:30px;
+		*{color:$wc;}
+		.copyrights{
+			text-align: center;
+			p{
+				margin:0;
+				font-size:1.3em;
+			}
+			p:last-child{
+				margin-top:2%;
+			}
+			p:first-child{
+				color:#867e7e;
+			}
+		}
+	}
+	.contact-holder{
+		display: flex;
+		.contact-item{
+			flex-basis: 33.33%;
+			padding:30px;
+			text-align: center;
+			font-size:1.3em;
+		    font-weight: 900;
+		    height: 280px;
+			>i{
+			    font-size: 1.9em;
+			    margin-top:6%;
+			}
+			p{
+				margin-top: 10%;
+			}
+			p:last-child{
+				display: flex;
+				justify-content: space-around;
+				i{
+					font-size:26px;
+				}
+			}
+			// *{color:#FFF;}
+
+		}
+		.contact-item:nth-child(2){
+			background:darken($accent, 5%);
+		}
+	}
+}
+
+@media screen and (max-width: 790px){
+	.contact-holder{
+		flex-direction: column !important;
+		.contact-item{
+			height: auto !important;
+		}
+	}
+}
+
+.odometer {
+  font-size: calc(2rem + 5vw);
+}
+
+		 .odometer{
+		     font-size: 100px;
+		     border: 0;
+		     border-radius: 0.25em;
+		     padding: 25px;
+		    
+		     .odometer-value{
+		         background: #000;
+		         -webkit-background-clip: text;
+		         -webkit-text-fill-color: transparent;
+		    }
+		}
+		.odometer.odometer-auto-theme{
+		  .odometer-digit{
+		    border-radius: 0;
+		    box-shadow: none;
+		    background: #FFF;
+		    font-size:1.3em;
+		    vertical-align:baseline;
+		    -webkit-box-reflect: below -20px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(30%, transparent), to(rgba(255, 255, 255, 0.9)));
+		  }
+		  .odometer-digit:nth-last-child(-n+2){
+		    border-radius: 0;
+		    box-shadow: none;
+		    background: #FFF;
+		    font-size:1.3em;
+		    vertical-align:baseline;
+		    -webkit-box-reflect: below -5px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(30%, transparent), to(rgba(255, 255, 255, 0.9)));
+		  }
+		}
+		.odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-car.odometer-animating-up .odometer-ribbon-inner {
+		  transition: transform 5s;
+		}
+
+
+@media screen and (max-width: 450px){
+	.odometer-inside{
+		font-size:.8em
+	}
+}
